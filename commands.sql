@@ -80,3 +80,22 @@ ORDER BY
 
 
 -------------------------------------------------------------------------------------------------------------------
+-- Q6.	There are 6 artists (in our database) who have released tracks having the words "Love Song" as part of the title. 
+-- List all 6 artists in alphabetical order. Note: track including the words "Love Songs" 
+-- should be excluded from the results. 
+
+SELECT DISTINCT
+   artists.name AS 'Artists' 
+FROM
+   artists 
+   INNER JOIN
+      albums 
+      ON artists.id = albums.artist_id 
+   INNER JOIN
+      tracks 
+      ON tracks.album_id = albums.id 
+WHERE
+   tracks.name LIKE '%Love Song%' 
+   AND tracks.name NOT LIKE '%Love Songs%' 
+ORDER BY
+   artists.name ASC;
