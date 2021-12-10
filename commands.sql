@@ -44,14 +44,15 @@ WHERE
 -- Include the number of albums released in that year in your result.
 
 SELECT
-   release_year AS 'release year',
-   count(id) AS 'number of albums' 
+   release_year AS 'Release Year',
+   COUNT(release_year) AS 'Number of Albums' 
 FROM
    albums 
 GROUP BY
    release_year 
 ORDER BY
-   release_year DESC LIMIT 3;
+   COUNT(release_year) DESC LIMIT 3;
+
 
 
 -------------------------------------------------------------------------------------------------------------------
