@@ -3,7 +3,7 @@
 -- Q1.	Which artists have a start year in or after 1995, and are still active (i.e., the end year is unknown)?
 
 SELECT
-   * 
+   name 
 FROM
    artists 
 WHERE
@@ -16,11 +16,13 @@ WHERE
 -- List your results along with the country of origin, start year and sorted by the year started, earliest first.
 
 SELECT
-   * 
+   name AS 'Artists',
+   origin AS 'Country of Origin',
+   start_year AS 'Start Year' 
 FROM
    artists 
 WHERE
-   name like 'R%' 
+   name LIKE 'R%' 
    AND origin != 'United Kingdom' 
 ORDER BY
    start_year DESC;
@@ -31,8 +33,8 @@ ORDER BY
 -- maximum length of these tracks which have a length listed (i.e., not NULL)? 
 
 SELECT
-   MAX(length) AS 'maximum length',
-   MIN(length) AS 'minimum length' 
+   MIN(length) AS 'Minimum Length',
+   MAX(length) AS 'Maximum Length'
 FROM
    tracks 
 WHERE
@@ -52,7 +54,6 @@ GROUP BY
    release_year 
 ORDER BY
    COUNT(release_year) DESC LIMIT 3;
-
 
 
 -------------------------------------------------------------------------------------------------------------------
