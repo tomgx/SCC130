@@ -99,3 +99,47 @@ WHERE
    AND tracks.name NOT LIKE '%Love Songs%' 
 ORDER BY
    artists.name ASC;
+   
+   
+-------------------------------------------------------------------------------------------------------------------
+-- Q7.	Which artists do not have an album listed in the database? Please list the name of those artists, 
+-- their start years based on the ascending order of the start year.
+
+SELECT
+   artists.name AS 'Artists',
+   start_year AS 'Start Year' 
+FROM
+   artists 
+   LEFT JOIN
+      albums 
+      ON artists.id = albums.artist_id 
+WHERE
+   albums.name IS NULL 
+ORDER BY
+   start_year ASC;
+
+   
+-------------------------------------------------------------------------------------------------------------------
+-- Q8.	The band "Black Box Recorder" will be touring again this year after previously retiring in 2010. 
+-- Change the end year for Black Box Recorder to be undefined (i.e. the band are still active). 
+-- Run a SELECT statement to show the change.
+
+UPDATE
+   artists 
+SET
+   end_year = NULL 
+WHERE
+   name = 'Black Box Recorder'; 
+
+
+-------------------------------------------------------------------------------------------------------------------
+-- Q9.	Create a new table, "playlist", in your database that represents tracks listed next to a person's name (i.e. who owns the playlist). The table should contain columns for the following: 
+-- - a numerical ID, which is the primary key; 
+-- - the name of the playlist owner (up to 25 characters); 
+-- - the track id, which you should set as a foreign key referencing the id column in tracks (the parent key); 
+-- - and a date added. 
+-- You must ensure that the name of the person and the track id are present for every row, but the date added may be missing.
+
+
+
+
