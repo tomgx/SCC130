@@ -159,19 +159,19 @@ INSERT INTO
    playlist (playlist_owner, track_id, date_added) 
 VALUES
    (
-      'Your Name', '19585773', ‘2021/12/14’
+      'Your Name', 19585773, 2021/12/14
    )
 , 
    (
-      'Your Name', '19524407', ‘2021/12/14’
+      'Your Name', 19524407, 2021/12/14
    )
 , 
    (
-      'Your Name', '19524403', ‘2021/12/14’
+      'Your Name', 19524403, 2021/12/14
    )
 , 
    (
-      'Your Name', '19446069', ‘2021/12/14’
+      'Your Name', 19446069, 2021/12/14
    )
 ;
 
