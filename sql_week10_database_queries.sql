@@ -141,6 +141,64 @@ WHERE
 -- - and a date added. 
 -- You must ensure that the name of the person and the track id are present for every row, but the date added may be missing.
 
+CREATE TABLE playlist
+(
+id int NOT NULL AUTO_INCREMENT,
+playlist_owner varchar(25) NOT NULL,
+track_id int NOT NULL,
+date_added date,
+PRIMARY KEY(id),
+FOREIGN KEY(track_id) REFERENCES tracks(id)
+);
+
+
+-- Use DESCRIBE playlist to show the resulting table.
+DESCRIBE playlist;
+
+
+-------------------------------------------------------------------------------------------------------------------
+-- Q10.	Add at least one track to your new playlist table, with your favourite tracks from the database. 
+-- You can look up the correct track id(s) separately.
+
+INSERT INTO
+   playlist (playlist_owner, track_id, date_added) 
+VALUES
+   (
+      'Your Name', '19585773', ‘2021/12/14’
+   )
+, 
+   (
+      'Your Name', '19524407', ‘2021/12/14’
+   )
+, 
+   (
+      'Your Name', '19524403', ‘2021/12/14’
+   )
+, 
+   (
+      'Your Name', '19446069', ‘2021/12/14’
+   )
+;
+
+
+-- Use SELECT * FROM playlist; to show the resulting table.
+SELECT * FROM playlist;
+
+
+-- Proof that track_id is valid
+SELECT
+   tracks.name,
+   playlist.track_id 
+FROM
+   playlist 
+   INNER JOIN
+      tracks 
+      ON tracks.id = playlist.track_id 
+WHERE
+   playlist.track_id IS NOT NULL;
+
+
+
 
 
 
