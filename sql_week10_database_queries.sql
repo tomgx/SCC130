@@ -61,23 +61,18 @@ ORDER BY
 -- for the album named "Blue Lines". Include the position, name, and length.
 
 SELECT
-   position AS 'Position',
-   name AS 'Tracks from Blue Lines Album',
-   length AS 'Length' 
+   tracks.position AS 'Position',
+   tracks.name AS 'Tracks From Blue Lines Album',
+   tracks.length AS 'Length' 
 FROM
    tracks 
+   INNER JOIN
+      albums 
+      ON tracks.album_id = albums.id 
 WHERE
-   album_id IN
-   (
-      SELECT
-         id 
-      FROM
-         albums 
-      WHERE
-         name = 'Blue Lines'
-   )
+   albums.name = 'Blue Lines' 
 ORDER BY
-   length ASC;
+   tracks.length ASC;
 
 
 -------------------------------------------------------------------------------------------------------------------
